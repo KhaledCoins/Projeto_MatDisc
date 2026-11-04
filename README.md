@@ -291,14 +291,16 @@ O ETL aceita outro caminho de entrada e de saída:
 python etl/gerar_base.py --csv outro/arquivo.csv --saida prolog
 ```
 
-## O que me deu trabalho
+## Cuidados que precisei tomar
 
-- `findall` com variável livre. Na primeira versão de `custo_medio_regiao` eu esqueci de
-  fixar a região antes do `findall` e a média saía igual para todas (era a média geral).
-  O tutorial avisa exatamente disso e mesmo assim caí.
+- `findall` com variável livre. Se `custo_medio_regiao` não chamasse `regiao(Regiao)` antes
+  do `findall`, a região ficaria livre, o `findall` juntaria os custos de todo mundo e a média
+  sairia igual para todas as regiões (seria a média geral). Por isso todo agrupamento começa
+  fixando a chave do grupo.
 - O operador `^` dentro do `setof`. Sem ele o `setof` agrupa pelas variáveis que sobram
   livres e devolve vários conjuntos em vez de um. Precisei dele em `regioes/1` e `perfis/1`.
-- Caminho relativo no `consult/1`. Funciona porque o SWI-Prolog resolve o caminho em relação
+- Caminho relativo no `consult/1`. O `consultas.pl` carrega a base e as regras pelo nome do
+  arquivo, e isso funciona de qualquer pasta porque o SWI-Prolog resolve o caminho em relação
   ao arquivo que está sendo carregado, não ao diretório de onde o comando foi chamado.
 - Formatação da saída. Para o relatório do terminal ficar legível escrevi um `mostrar/1`
   pequeno que imprime float com duas casas, listas uma por linha e pares `A-B` separados por
