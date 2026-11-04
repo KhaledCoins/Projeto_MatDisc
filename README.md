@@ -18,9 +18,9 @@ qualitativas e quantitativas. Acabei escolhendo o *Medical Cost Personal Dataset
 plano de saúde americano, com alguns dados demográficos e o custo médico anual que cada um
 gerou para o plano.
 
-Gostei dele por três motivos: é pequeno o bastante para a base Prolog continuar legível,
-não tem valor faltando, e a pergunta por trás dos dados é a mesma que uma seguradora faz
-todo dia na hora de precificar: o que faz um segurado sair mais caro?
+Gostei dele porque é pequeno o bastante para a base Prolog continuar legível, não tem valor
+faltando e a pergunta por trás dos dados é a mesma que uma seguradora faz na hora de
+precificar: o que faz um segurado sair mais caro?
 
 A tabela tem exatamente 7 campos e usei todos:
 
@@ -153,7 +153,7 @@ razao              =     3.80
 
 A regra calcula a média de cada grupo separadamente e depois faz a diferença e a razão
 entre as duas. O resultado é bem mais forte do que eu esperava: um fumante custa quase
-quatro vezes um não fumante. Nenhuma outra variável da base chega perto disso.
+quatro vezes um não fumante. Nenhum outro corte que fiz na base chega perto disso.
 
 ### 2. Qual é o ranking das regiões por custo médio, e a taxa de fumantes explica a posição?
 
